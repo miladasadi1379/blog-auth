@@ -28,6 +28,7 @@ export default function AdminPosts({ params }) {
         const { data, err, status } = await supabase
             .from(session?.user?.id)
             .select(`id,created_at,title,like,dislike,eye`)
+            .order('created_at', { ascending: false })
 
         if (err) {
             toast.error("مشکلی پیش آمد")
