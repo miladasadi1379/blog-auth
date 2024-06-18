@@ -22,6 +22,7 @@ export default function Home() {
       const { data, error } = await supabase
         .from('3ee91358-24e7-4d4c-8820-e7d08edcb1b2')
         .select(`id,title,created_at,like,eye,dislike`)
+        .order('created_at', { ascending: false })
       if (error) {
         toast.error('مشکلی رخ داد')
         console.log(error.message)
